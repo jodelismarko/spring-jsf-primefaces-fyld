@@ -1,0 +1,7 @@
+version: "3"
+services:
+  myapp:
+    build: .
+    image: desafio_spring_primefaces:0.0.1
+    ports:
+      - "80:8080"
