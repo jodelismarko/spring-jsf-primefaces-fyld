@@ -2,30 +2,31 @@ package pt.fyld.application.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import pt.fyld.application.mapper.PessoaMapper;
 import pt.fyld.application.model.PessoaDTO;
 import pt.fyld.application.model.PessoaInfoDTO;
-import pt.fyld.application.service.base.PessoaInfo;
+import pt.fyld.domain.entity.Pessoa;
+import pt.fyld.domain.repository.PessoaRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-@Service
-public class PessoaInfoService {
 
-    @Autowired
-    private PessoaService pessoaService;
+ 
 
-    @Autowired
-    private PessoaInfo pessoaInfo;
+public interface PessoaInfoService {
+	
+    
 
-    public PessoaInfoDTO getPessoas() {
-        List<PessoaDTO> pessoaList = pessoaService.getPessoas();
-        PessoaInfoDTO pessoaInfoDTO = pessoaInfo.getInfoPessoa(pessoaList);
-        return pessoaInfoDTO;
-    }
+    public PessoaInfoDTO getPessoas();
+     
 
-    public PessoaInfoDTO getPessoasByGenero(Character genero) {
-        List<PessoaDTO> pessoaList = pessoaService.getPessoasBySexo(genero);
-        PessoaInfoDTO pessoaInfoDTO = pessoaInfo.getInfoPessoa(pessoaList);
-        return pessoaInfoDTO;
-    }
+    public PessoaInfoDTO getPessoasByGenero(Character genero);
+    	
+       
+    
+ 
+    
+    
 }
