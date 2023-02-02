@@ -8,7 +8,7 @@ import pt.fyld.application.model.PessoaInfoDTO;
 import java.util.List;
 
 @Service
-public class PessoaInfo {
+public class PessoaInfoDTOBuilder {
 
     @Autowired
     private CalculaMedia calculaMedia;
@@ -16,11 +16,11 @@ public class PessoaInfo {
     @Autowired
     private FiltroPessoa filtroPessoa;
 
-    public PessoaInfoDTO getInfoPessoa(List<PessoaDTO> pessoaList){
-        PessoaDTO maisVelha = filtroPessoa.getPessoaMaisVelha(pessoaList);
-        PessoaDTO maisNova = filtroPessoa.getPessoaMaisNova(pessoaList);
-        Double media = calculaMedia.getMedia(pessoaList);
-
-        return new PessoaInfoDTO(maisVelha, maisNova, media);
+    public PessoaInfoDTO getInfoPessoaDTO(List<PessoaDTO> pessoaList){
+        return PessoaInfoDTO.builder()
+                .maisVelha(filtroPessoa.getPessoaMaisVelha(pessoaList))
+                .maisNova(filtroPessoa.getPessoaMaisNova(pessoaList))
+                .mediaIdade(calculaMedia.getMedia(pessoaList))
+                .build();
     }
 }
