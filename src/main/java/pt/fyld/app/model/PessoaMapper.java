@@ -1,7 +1,7 @@
-package pt.fyld.application.mapper;
+package pt.fyld.app.model;
 
 import org.springframework.stereotype.Service;
-import pt.fyld.application.model.PessoaDTO;
+
 import pt.fyld.domain.entity.Pessoa;
 
 import java.util.ArrayList;

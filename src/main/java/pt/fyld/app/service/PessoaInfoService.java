@@ -1,6 +1,6 @@
-package pt.fyld.application.service;
+package pt.fyld.app.service;
 
-import pt.fyld.application.model.PessoaInfoDTO;
+import pt.fyld.app.model.PessoaInfoDTO;
 
 public interface PessoaInfoService {
 

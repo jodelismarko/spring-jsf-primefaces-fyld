@@ -1,9 +1,10 @@
-package pt.fyld.application.service;
+package pt.fyld.app.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pt.fyld.application.model.PessoaDTO;
-import pt.fyld.application.model.PessoaInfoDTO;
+
+import pt.fyld.app.model.PessoaDTO;
+import pt.fyld.app.model.PessoaInfoDTO;
 
 import java.util.Comparator;
 import java.util.List;

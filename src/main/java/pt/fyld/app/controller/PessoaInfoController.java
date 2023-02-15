@@ -1,9 +1,10 @@
-package pt.fyld.application.controller;
+package pt.fyld.app.controller;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
-import pt.fyld.application.model.PessoaInfoDTO;
-import pt.fyld.application.service.PessoaInfoService;
+
+import pt.fyld.app.model.PessoaInfoDTO;
+import pt.fyld.app.service.PessoaInfoService;
 
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
@@ -11,6 +12,8 @@ import javax.inject.Named;
 import java.util.Arrays;
 import java.util.List;
 
+//http://localhost:8080/fyld-qld/pessoa-info
+//http://localhost:8080/pessoa-info
 @Named
 @Data
 @ViewScoped

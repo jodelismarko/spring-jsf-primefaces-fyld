@@ -1,4 +1,4 @@
-package pt.fyld.application.model;
+package pt.fyld.app.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

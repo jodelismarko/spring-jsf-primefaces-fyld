@@ -1,8 +1,8 @@
-package pt.fyld.application.service;
+package pt.fyld.app.service;
 
 import java.util.List;
 
-import pt.fyld.application.model.PessoaDTO;
+import pt.fyld.app.model.PessoaDTO;
 
 public interface Media {
 	

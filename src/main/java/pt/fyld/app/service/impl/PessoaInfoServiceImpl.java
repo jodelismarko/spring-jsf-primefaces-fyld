@@ -1,4 +1,4 @@
-package pt.fyld.application.service.impl;
+package pt.fyld.app.service.impl;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,11 +6,11 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import pt.fyld.application.mapper.PessoaMapper;
-import pt.fyld.application.model.PessoaDTO;
-import pt.fyld.application.model.PessoaInfoDTO;
-import pt.fyld.application.service.PessoaInfoBuilder;
-import pt.fyld.application.service.PessoaInfoService;
+import pt.fyld.app.model.PessoaDTO;
+import pt.fyld.app.model.PessoaInfoDTO;
+import pt.fyld.app.model.PessoaMapper;
+import pt.fyld.app.service.PessoaInfoBuilder;
+import pt.fyld.app.service.PessoaInfoService;
 import pt.fyld.domain.entity.Pessoa;
 import pt.fyld.domain.repository.PessoaRepository;
 

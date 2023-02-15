@@ -1,4 +1,4 @@
-package pt.fyld.configs;
+package pt.fyld.infra.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;

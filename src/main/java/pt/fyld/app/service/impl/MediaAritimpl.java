@@ -1,9 +1,10 @@
-package pt.fyld.application.service.impl;
+package pt.fyld.app.service.impl;
 
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import pt.fyld.application.model.PessoaDTO;
-import pt.fyld.application.service.Media;
+
+import pt.fyld.app.model.PessoaDTO;
+import pt.fyld.app.service.Media;
 
 import java.util.ArrayList;
 import java.util.List;
