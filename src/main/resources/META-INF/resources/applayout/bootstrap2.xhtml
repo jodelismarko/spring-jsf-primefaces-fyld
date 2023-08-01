@@ -35,35 +35,21 @@
 
 </h:head>
     <h:body>
-        <!--Primefaces extension for AJAX comunication between ManagedBean and JSF Page-->
-        <h:form>
-            <pe:remoteCommand name="search" actionListener="#{index.searchName}">
-                <pe:methodSignature parameters="java.lang.String" />
-                <pe:methodParam name="name" />
-            </pe:remoteCommand>
-        </h:form>
-
         <ui:insert name="header">
             <ui:include src="/applayout/header.xhtml"/>
-
         </ui:insert>
 
         <ui:insert name="sidebar">
             <ui:include src="/applayout/sidebar.xhtml"/>
         </ui:insert>
 
+        <ui:insert name="conteudo">
+            <ui:include src="/applayout/conteudo.xhtml"/>
+        </ui:insert>
+
+
         <ui:insert name="footer">
             <ui:include src="/applayout/footer.xhtml"/>
         </ui:insert>
-        <script>
-                $(document).on("ready",function(){
-                    //Here you can use JQuery behaviour
-                });
-
-                function searchName(){
-                    var name = $("#search-text").val();
-                    search(name);
-                }
-            </script>
     </h:body>
 </html>

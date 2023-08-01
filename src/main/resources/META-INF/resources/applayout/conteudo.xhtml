@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
@@ -12,19 +13,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
 </h:head>
 <h:body>
+
     <ui:composition>
-        <div id="main" class="main">
 
-            <h:form id="dorpdow">
-                <p:selectOneMenu id="option" value="#{pessoaInfoController.item}">
-                    <f:selectItem itemLabel="Select One" itemValue=""/>
-                    <f:selectItems value="#{pessoaInfoController.options}"/>
-                    <p:ajax update="panelGeral" event="change"/>
-                </p:selectOneMenu>
-            </h:form>
+        <div class="#{pessoaInfoController.mostrarMenu == true ? 'showMenu' : 'hideMenu'}">
 
-            <p:outputPanel id="panelGeral">
-                <c:set var="pessoaInfo" value="#{pessoaInfoController.pessoaInfoDTO}" />
+                <c:set var="pessoaInfo" value="#{pessoaInfoController.pessoaInfoDTO}"/>
 
                 <p:panel id="semPessoas" rendered="#{!pessoaInfoController.mostrarPessoas}">
                     <div style="display:flex;justify-content:center;align-items:center;">
@@ -38,33 +32,35 @@
                     </div>
                     <p:panel header="Pessoa Mais Velha">
                         <h:panelGrid columns="2" cellpadding="4">
-                            <h:outputText value="Nome: " />
-                            <h:outputText value="#{pessoaInfo.maisVelha.nome}" />
-                            <h:outputText value="Genero: " />
-                            <h:outputText value="#{pessoaInfo.maisVelha.genero}" />
-                            <h:outputText value="Idade: " />
-                            <h:outputText value="#{pessoaInfo.maisVelha.idade}" />
+                            <h:outputText value="Nome: "/>
+                            <h:outputText value="#{pessoaInfo.maisVelha.nome}"/>
+                            <h:outputText value="Genero: "/>
+                            <h:outputText value="#{pessoaInfo.maisVelha.genero}"/>
+                            <h:outputText value="Idade: "/>
+                            <h:outputText value="#{pessoaInfo.maisVelha.idade}"/>
                         </h:panelGrid>
                     </p:panel>
                     <p:panel header="Pessoa Mais Nova">
                         <h:panelGrid columns="2" cellpadding="4">
-                            <h:outputText value="Nome: " />
-                            <h:outputText value="#{pessoaInfo.maisNova.nome}" />
-                            <h:outputText value="Genero: " />
-                            <h:outputText value="#{pessoaInfo.maisNova.genero}" />
-                            <h:outputText value="Idade: " />
-                            <h:outputText value="#{pessoaInfo.maisNova.idade}" />
+                            <h:outputText value="Nome: "/>
+                            <h:outputText value="#{pessoaInfo.maisNova.nome}"/>
+                            <h:outputText value="Genero: "/>
+                            <h:outputText value="#{pessoaInfo.maisNova.genero}"/>
+                            <h:outputText value="Idade: "/>
+                            <h:outputText value="#{pessoaInfo.maisNova.idade}"/>
                         </h:panelGrid>
                     </p:panel>
                     <p:panel header="Média Idade">
                         <h:panelGrid columns="2" cellpadding="4">
-                            <h:outputText value="Média Idade: " />
-                            <h:outputText value="#{pessoaInfo.mediaIdade}" />
+                            <h:outputText value="Média Idade: "/>
+                            <h:outputText value="#{pessoaInfo.mediaIdade}"/>
                         </h:panelGrid>
                     </p:panel>
                 </p:panel>
-            </p:outputPanel>
+
         </div>
+
     </ui:composition>
+
 </h:body>
 </html>

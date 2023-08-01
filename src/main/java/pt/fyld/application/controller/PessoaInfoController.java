@@ -2,6 +2,7 @@ package pt.fyld.application.controller;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.annotation.SessionScope;
 import pt.fyld.application.model.PessoaInfoDTO;
 import pt.fyld.application.service.PessoaInfoService;
 
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Named
 @Data
-@ViewScoped
+@SessionScope
 public class PessoaInfoController {
 
     @Autowired
@@ -27,11 +28,20 @@ public class PessoaInfoController {
 
     private boolean mostrarPessoas;
 
+    private boolean mostrarMenu;
+
+
     @PostConstruct
     public void initialize() {
         this.options = Arrays.asList("Todos", "Masculino", "Feminino");
         this.mostrarPessoas = false;
+        this.mostrarMenu = false;
         this.item = "";
+    }
+
+    public void showMenu(){
+        System.out.println(!this.mostrarMenu);
+        this.mostrarMenu = !this.mostrarMenu;
     }
 
     public void setItem(String pessoa){

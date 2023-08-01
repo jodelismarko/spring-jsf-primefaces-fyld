@@ -3,63 +3,40 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:c="http://java.sun.com/jstl/core"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
   <title>Desasfio - Spring - PrimeFaces </title>
+    <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+
+    <h:outputStylesheet library="css" name="index.css" />
 </h:head>
 
 <h:body>
 
-    <h:form id="dorpdow">
-        <p:selectOneMenu id="option" value="#{pessoaInfoController.item}">
-            <f:selectItem itemLabel="Select One" itemValue=""/>
-            <f:selectItems value="#{pessoaInfoController.options}"/>
-            <p:ajax update="panelGeral" event="change"/>
-        </p:selectOneMenu>
-    </h:form>
+    <ui:insert name="header">
+        <ui:include src="/applayout/header.xhtml"/>
+    </ui:insert>
 
-    <p:outputPanel id="panelGeral">
-        <c:set var="pessoaInfo" value="#{pessoaInfoController.pessoaInfoDTO}" />
+    <ui:insert name="sidebar">
+        <ui:include src="/applayout/sidebar.xhtml"/>
+    </ui:insert>
 
-        <p:panel id="semPessoas" rendered="#{!pessoaInfoController.mostrarPessoas}">
-            <div style="display:flex;justify-content:center;align-items:center;">
-                <h1>Não há dados a serem mostrados</h1>
-            </div>
-        </p:panel>
+    <ui:insert name="conteudo">
+        <ui:include src="/applayout/conteudo.xhtml"/>
+    </ui:insert>
 
-        <p:panel id="pessoasInfo" rendered="#{pessoaInfoController.mostrarPessoas}">
-            <div style="display:flex;justify-content:center;align-items:center;">
-                <h1>#{pessoaInfoController.item}</h1>
-            </div>
-            <p:panel header="Pessoa Mais Velha">
-                <h:panelGrid columns="2" cellpadding="4">
-                    <h:outputText value="Nome: " />
-                    <h:outputText value="#{pessoaInfo.maisVelha.nome}" />
-                    <h:outputText value="Genero: " />
-                    <h:outputText value="#{pessoaInfo.maisVelha.genero}" />
-                    <h:outputText value="Idade: " />
-                    <h:outputText value="#{pessoaInfo.maisVelha.idade}" />
-                </h:panelGrid>
-            </p:panel>
-            <p:panel header="Pessoa Mais Nova">
-                <h:panelGrid columns="2" cellpadding="4">
-                    <h:outputText value="Nome: " />
-                    <h:outputText value="#{pessoaInfo.maisNova.nome}" />
-                    <h:outputText value="Genero: " />
-                    <h:outputText value="#{pessoaInfo.maisNova.genero}" />
-                    <h:outputText value="Idade: " />
-                    <h:outputText value="#{pessoaInfo.maisNova.idade}" />
-                </h:panelGrid>
-            </p:panel>
-            <p:panel header="Média Idade">
-                <h:panelGrid columns="2" cellpadding="4">
-                    <h:outputText value="Média Idade: " />
-                    <h:outputText value="#{pessoaInfo.mediaIdade}" />
-                </h:panelGrid>
-            </p:panel>
-        </p:panel>
-    </p:outputPanel>
+    <ui:insert name="footer">
+        <ui:include src="/applayout/footer.xhtml"/>
+    </ui:insert>
+
 </h:body>
 </html>

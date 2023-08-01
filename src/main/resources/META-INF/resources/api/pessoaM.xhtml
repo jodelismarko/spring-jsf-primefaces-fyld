@@ -2,38 +2,64 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
   <title>Desasfio - Spring - PrimeFaces </title>
 </h:head>
 
 <h:body>
-  <p:panel header="Pessoa Mais Velha">
-    <h:panelGrid columns="2" cellpadding="4">
-      <h:outputText value="Nome: " />
-      <h:outputText value="#{pessoaInfoController.pessoasMasculino.maisVelha.nome}" />
-      <h:outputText value="Genero: " />
-      <h:outputText value="#{pessoaInfoController.pessoasMasculino.maisVelha.genero}" />
-      <h:outputText value="Idade: " />
-      <h:outputText value="#{pessoaInfoController.pessoasMasculino.maisVelha.idade}" />
-    </h:panelGrid>
-  </p:panel>
-  <p:panel header="Pessoa Mais Nova">
-    <h:panelGrid columns="2" cellpadding="4">
-      <h:outputText value="Nome: " />
-      <h:outputText value="#{pessoaInfoController.pessoasMasculino.maisNova.nome}" />
-      <h:outputText value="Genero: " />
-      <h:outputText value="#{pessoaInfoController.pessoasMasculino.maisNova.genero}" />
-      <h:outputText value="Idade: " />
-      <h:outputText value="#{pessoaInfoController.pessoasMasculino.maisNova.idade}" />
-    </h:panelGrid>
-  </p:panel>
-  <p:panel header="Média Idade">
-    <h:panelGrid columns="2" cellpadding="4">
-      <h:outputText value="Média Idade: " />
-      <h:outputText value="#{pessoaInfoController.pessoasMasculino.mediaIdade}" />
-    </h:panelGrid>
-  </p:panel>
+
+  <h:form id="dorpdow">
+    <p:selectOneMenu id="option" value="#{pessoaInfoController.item}">
+      <f:selectItem itemLabel="Select One" itemValue=""/>
+      <f:selectItems value="#{pessoaInfoController.options}"/>
+      <p:ajax update="panelGeral" event="change"/>
+    </p:selectOneMenu>
+  </h:form>
+
+  <p:outputPanel id="panelGeral">
+    <c:set var="pessoaInfo" value="#{pessoaInfoController.pessoaInfoDTO}" />
+
+    <p:panel id="semPessoas" rendered="#{!pessoaInfoController.mostrarPessoas}">
+      <div style="display:flex;justify-content:center;align-items:center;">
+        <h1>Não há dados a serem mostrados</h1>
+      </div>
+    </p:panel>
+
+    <p:panel id="pessoasInfo" rendered="#{pessoaInfoController.mostrarPessoas}">
+      <div style="display:flex;justify-content:center;align-items:center;">
+        <h1>#{pessoaInfoController.item}</h1>
+      </div>
+      <p:panel header="Pessoa Mais Velha">
+        <h:panelGrid columns="2" cellpadding="4">
+          <h:outputText value="Nome: " />
+          <h:outputText value="#{pessoaInfo.maisVelha.nome}" />
+          <h:outputText value="Genero: " />
+          <h:outputText value="#{pessoaInfo.maisVelha.genero}" />
+          <h:outputText value="Idade: " />
+          <h:outputText value="#{pessoaInfo.maisVelha.idade}" />
+        </h:panelGrid>
+      </p:panel>
+      <p:panel header="Pessoa Mais Nova">
+        <h:panelGrid columns="2" cellpadding="4">
+          <h:outputText value="Nome: " />
+          <h:outputText value="#{pessoaInfo.maisNova.nome}" />
+          <h:outputText value="Genero: " />
+          <h:outputText value="#{pessoaInfo.maisNova.genero}" />
+          <h:outputText value="Idade: " />
+          <h:outputText value="#{pessoaInfo.maisNova.idade}" />
+        </h:panelGrid>
+      </p:panel>
+      <p:panel header="Média Idade">
+        <h:panelGrid columns="2" cellpadding="4">
+          <h:outputText value="Média Idade: " />
+          <h:outputText value="#{pessoaInfo.mediaIdade}" />
+        </h:panelGrid>
+      </p:panel>
+    </p:panel>
+  </p:outputPanel>
 </h:body>
 </html>

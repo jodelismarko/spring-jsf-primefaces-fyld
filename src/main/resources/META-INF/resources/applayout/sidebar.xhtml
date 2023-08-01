@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
@@ -12,23 +12,25 @@
 </h:head>
 <h:body>
     <ui:composition>
-        <div id="main">
-            <button class="openbtn" onclick="openNav()">☰</button>
-            <button class="openbtn" onclick="closeNav()">X</button>
-        </div>
-    </ui:composition>
-    <script>
-        function openNav() {
-          document.getElementById("mySidebar").style.width = "250px";
-          document.getElementById("main").style.marginLeft = "250px";
-          document.getElementById("conteudo").style.marginLeft = "250px";
-        }
+            <p:panel id="sidebar" class="sidebar" rendered="#{pessoaInfoController.mostrarMenu}">
+                <div id="mySidebar" class="sidebar">
+                    <h:graphicImage value = "/images/fyld.png" height="60" width="250" margin-top="30px" />
 
-        function closeNav() {
-          document.getElementById("mySidebar").style.width = "0";
-          document.getElementById("main").style.marginLeft= "0";
-          document.getElementById("conteudo").style.marginLeft = "0px";
-        }
-        </script>
+                    <div class="sidebarbtns">
+                        <h:form id="todos" >
+                            <h:commandButton class="sidebarbtn" value="Todos" type="submit" action="#{pessoaInfoController.setItem('Todos')}"/>
+                        </h:form>
+                        <h:form id="Feminino">
+                            <h:commandButton class="sidebarbtn" value="Feminino" type="submit" action="#{pessoaInfoController.setItem('Feminino')}"/>
+                        </h:form>
+                        <h:form id="Masculino">
+                            <h:commandButton class="sidebarbtn" value="Masculino" type="submit" action="#{pessoaInfoController.setItem('Masculino')}"/>
+                        </h:form>
+                    </div>
+
+                </div>
+            </p:panel>
+    </ui:composition>
 </h:body>
 </html>
+

@@ -14,12 +14,20 @@ public class PessoaPageRedirect implements WebMvcConfigurer {
         .setViewName("forward:index.xhtml");
     registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
 
-    registry.addViewController("/M")
+    registry.addViewController("/api/M")
             .setViewName("forward:pessoaM.xhtml");
     registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
 
-    registry.addViewController("/F")
+    registry.addViewController("/api/F")
             .setViewName("forward:pessoaF.xhtml");
+    registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+
+    registry.addViewController("/template/template")
+            .setViewName("forward:template.xhtml");
+    registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+
+    registry.addViewController("/template/dashboards")
+            .setViewName("forward:dashboards.xhtml");
     registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
   }
 }
