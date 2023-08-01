@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+<h:head>
+    <title>Header</title>
+    <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+</h:head>
+<h:body>
+    <ui:composition>
+        <div id="main">
+            <button class="openbtn" onclick="openNav()">☰</button>
+            <button class="openbtn" onclick="closeNav()">X</button>
+        </div>
+    </ui:composition>
+    <script>
+        function openNav() {
+          document.getElementById("mySidebar").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+          document.getElementById("conteudo").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+          document.getElementById("mySidebar").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+          document.getElementById("conteudo").style.marginLeft = "0px";
+        }
+        </script>
+</h:body>
+</html>
